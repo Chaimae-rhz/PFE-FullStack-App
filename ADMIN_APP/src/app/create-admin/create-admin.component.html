@@ -1,0 +1,35 @@
+<div class="container mt-3">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div *ngIf="emailExistsError" class="text-danger">
+        {{ emailExistsError }}
+      </div>
+      <form [formGroup]="adminFormGroup" (ngSubmit)="handleAdmin()" class="shadow p-4 rounded">
+        <h2 class="mb-4 title-color">Ajouter Admin</h2>
+
+        <mat-form-field class="mb-3  ">
+          <mat-label>Email</mat-label>
+          <input matInput type="email" formControlName="email">
+          <mat-error *ngIf="adminFormGroup.controls['email'].errors && adminFormGroup.controls['email'].touched">
+            {{ getErrorMessage('Email', adminFormGroup.controls['email'].errors || {}) }}
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="mb-3 ">
+          <mat-label >Mot de Passe</mat-label>
+          <input matInput type="text" formControlName="password">
+          <mat-error *ngIf="adminFormGroup.controls['password'].errors && adminFormGroup.controls['password'].touched">
+            {{ getErrorMessage('Password', adminFormGroup.controls['password'].errors || {}) }}
+          </mat-error>
+        </mat-form-field>
+        <div class="mb-3">
+          <mat-checkbox formControlName="superAdmin">Super Admin</mat-checkbox>
+        </div>
+
+        <div class="mt-4 d-flex justify-content-between">
+          <button mat-button class="mat-accent" type="button" (click)="cancel()">Cancel</button>
+          <button mat-raised-button color="primary" [disabled]="!adminFormGroup.valid" type="submit">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

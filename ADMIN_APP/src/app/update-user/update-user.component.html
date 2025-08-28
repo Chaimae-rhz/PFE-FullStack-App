@@ -1,0 +1,74 @@
+<div class="container mt-3">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div *ngIf="updateError" class="text-danger">
+        {{ updateError }}
+      </div>
+      <form [formGroup]="userFormGroup" (ngSubmit)="updateUserAction()" class="shadow p-4 rounded">
+        <h2 class="mb-4">Modifier Utilisateur</h2>
+        <mat-form-field class="mb-3">
+          <mat-label>Nom Complet</mat-label>
+          <input matInput type="text" formControlName="username">
+          <mat-error *ngIf="userFormGroup.controls['username'].errors && userFormGroup.controls['username'].touched">
+            {{ getErrorMessage('Username', userFormGroup.controls['username'].errors || {}) }}
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="mb-3">
+          <mat-label>Nom</mat-label>
+          <input matInput type="text" formControlName="firstName">
+          <mat-error *ngIf="userFormGroup.controls['firstName'].errors && userFormGroup.controls['firstName'].touched">
+            {{ getErrorMessage('FirstName', userFormGroup.controls['firstName'].errors || {}) }}
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="mb-3">
+          <mat-label>Prènom</mat-label>
+          <input matInput type="text" formControlName="lastName">
+          <mat-error *ngIf="userFormGroup.controls['lastName'].errors && userFormGroup.controls['lastName'].touched">
+            {{ getErrorMessage('lastName', userFormGroup.controls['lastName'].errors || {}) }}
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="mb-3">
+          <mat-label>Email</mat-label>
+          <input matInput type="email" formControlName="email">
+          <mat-error *ngIf="userFormGroup.controls['email'].errors && userFormGroup.controls['email'].touched">
+            {{ getErrorMessage('Email', userFormGroup.controls['email'].errors || {}) }}
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="mb-3">
+          <mat-label>Mot de Passe</mat-label>
+          <input matInput type="text" formControlName="password">
+          <mat-error *ngIf="userFormGroup.controls['password'].errors && userFormGroup.controls['password'].touched">
+            {{ getErrorMessage('Password', userFormGroup.controls['password'].errors || {}) }}
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="mb-3">
+          <mat-label>Téléphone</mat-label>
+          <input matInput type="phoneNumber" formControlName="phoneNumber">
+          <mat-error *ngIf="userFormGroup.controls['phoneNumber'].errors && userFormGroup.controls['phoneNumber'].touched">
+            {{ getErrorMessage('PhoneNumber', userFormGroup.controls['phoneNumber'].errors || {}) }}
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="mb-3">
+          <mat-label>Role</mat-label>
+          <mat-select formControlName="role">
+            <mat-option disabled selected>Select Role</mat-option>
+            <mat-option *ngFor="let role of roleOptions" [value]="role">{{ role }}</mat-option>
+          </mat-select>
+          <mat-error *ngIf="userFormGroup.controls['role'].errors && userFormGroup.controls['role'].touched">
+            {{ getErrorMessage('Role', userFormGroup.controls['role'].errors || {}) }}
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="mb-3">
+          <mat-label>Filière</mat-label>
+          <input matInput type="text" formControlName="programeId">
+        </mat-form-field>
+
+        <div class="mt-4 d-flex justify-content-between">
+          <button mat-button class="mat-accent" type="button" (click)="cancel()">Cancel</button>
+          <button mat-raised-button  class="background-color" type="submit">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

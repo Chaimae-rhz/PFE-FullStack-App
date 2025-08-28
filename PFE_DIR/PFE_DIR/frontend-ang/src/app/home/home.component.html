@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Liste des demandes</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+</head>
+<body>
+
+<div class="lux-header bg-gradient-to-r from-blue-500 to-purple-600 text-white py-4">
+  <h1>Liste des demandes</h1>
+</div>
+
+<div class="container">
+  <div *ngFor="let demande of demandes" class="demande">
+    <div class="row">
+      <div class="col-md-3">
+        <strong>ID:</strong> {{ demande.id }}
+      </div>
+      <div class="col-md-3">
+        <strong>Priorité:</strong> {{ demande.priority }}
+      </div>
+      <div class="col-md-6">
+        <strong>Date de création:</strong> {{ demande.createdAt | date:'dd/MM/yyyy HH:mm'}}
+        <!-- Sous-titre pour la date de resubmission -->
+        <p *ngIf="demande.dateResubmission" class="text-muted">Date de resubmission: {{ demande.dateResubmission | date:'dd/MM/yyyy HH:mm' }}</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <strong>Titre:</strong> {{ demande.title }}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <img [src]="demande.file_imageBefore || 'assets/logo_par_defaut.jpg'" alt="Decoded Image" class="img-fluid">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <p>Description: {{ demande.description }}</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <button class="btn btn-primary" (click)="renvoyerDemande(demande.id)">Renvoyer demande</button>
+
+        <!-- Alertes Bootstrap pour afficher les messages d'erreur -->
+        <div class="row">
+          <div class="col-md-12">
+            <!-- Message de succès -->
+            <ng-container *ngIf="successMessageVisible && demande.id === selectedDemandeId">
+              <button mat-button (click)="openSnackBar(successMessage)">Afficher le message de succès</button>
+            </ng-container>
+
+            <div *ngIf="errorMessageVisible && demande.id === selectedDemandeId" class="alert alert-danger mt-3" role="alert">
+              {{ errorMessage }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

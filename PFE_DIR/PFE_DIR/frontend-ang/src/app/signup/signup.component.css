@@ -1,0 +1,125 @@
+.custom-header {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap; /* Permet aux éléments de passer à la ligne si nécessaire */
+  justify-content: center; /* Centre les éléments horizontalement */
+}
+
+.circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: green;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px; /* Augmente les marges pour éviter les chevauchements */
+}
+
+.header-text {
+  font-size: 18px;
+  text-align: center; /* Centre le texte */
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 10px; /* Ajoute du padding pour les petits écrans */
+  box-sizing: border-box; /* Assure que le padding est inclus dans les dimensions de la boîte */
+}
+
+.mat-card {
+  max-width: 400px;
+  width: 100%;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 10px; /* Ajoute de la marge pour éviter que le card soit collé au bord de l'écran */
+}
+
+.mat-card-header {
+  text-align: center;
+}
+
+.mat-card-content {
+  padding-top: 20px;
+}
+
+.mat-form-field {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.mat-error {
+  color: red;
+}
+
+.mt-4 {
+  margin-top: 20px;
+}
+
+.mat-icon-button {
+  position: absolute;
+  right: 8px;
+  top: calc(50% - 12px);
+}
+
+button[type="submit"] {
+  width: 100%;
+}
+
+.lux-error-message {
+  color: red;
+  font-size: 1.2em;
+  font-weight: bold;
+  background-color: #ffe6e6;
+  padding: 10px;
+  border: 1px solid red;
+  border-radius: 5px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.login-button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.login-button:hover {
+  background-color: #388e3c;
+}
+
+.icon {
+  margin-right: 8px;
+  font-size: 24px;
+}
+@media (max-width: 600px) {
+  .header-text {
+    font-size: 16px; /* Réduit la taille du texte pour les petits écrans */
+  }
+
+  .circle {
+    width: 30px; /* Réduit la taille du cercle pour les petits écrans */
+    height: 30px;
+    font-size: 16px;
+  }
+
+  .mat-card {
+    padding: 10px; /* Réduit le padding pour les petits écrans */
+  }
+
+  .container {
+    height: auto; /* Permet au conteneur de s'adapter à la hauteur du contenu */
+    padding: 20px 10px; /* Ajuste le padding pour les petits écrans */
+  }
+}

@@ -1,0 +1,136 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.dashboard-card {
+  width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0px 10px 30px rgba(0,0,0,0.1);
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.dashboard-title {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #35b0ab;
+  text-transform: uppercase;
+  border-bottom: 2px solid #ccc;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
+}
+.dashboard-title::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: #35b0ab;
+  margin: 10px auto;
+}
+
+.dashboard-item {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid lightgray;
+}
+
+.dashboard-item:last-child {
+  border-bottom: none;
+}
+
+.dashboard-item i {
+  font-size: 2em;
+  margin-right: 20px;
+}
+
+
+
+.item-value {
+  margin-left: auto;
+
+  color: #1abc9c;
+  font-size: 1.2em;
+  transition: all 0.3s;
+}
+/* Icônes */
+.dashboard-item i {
+  color: #3498db;
+}
+
+/* Titres */
+.item-title {
+  color: black;
+  font-weight:normal !important;
+}
+
+
+/* Alternance de couleurs */
+.dashboard-item:nth-child(even) {
+  background-color: #f1f1f1;
+}
+
+/* Survol */
+.dashboard-item:hover {
+  background-color: #ecf0f1;
+}
+.dashboard-item.total-requests i {
+  color: #e67e22;
+}
+
+.dashboard-item.requests-awaiting i {
+  color: #3498db;
+}
+
+.dashboard-item.requests-in-progress i {
+  color: #9b59b6;
+}
+
+.dashboard-item.requests-processed i {
+  color: #2ecc71;
+}
+
+.dashboard-item.requests-canceled i {
+  color: #e74c3c;
+}
+
+.dashboard-item.requests-normal i {
+  color: #f39c12;
+}
+
+.dashboard-item.requests-urgent i {
+  color: #d35400;
+}
+
+.dashboard-item.requests-low i {
+  color: #1abc9c;
+}
+
+.dashboard-item.total-users i {
+  color: #2980b9;
+}
+
+.dashboard-item.total-personnel i {
+  color: #27ae60;
+}
+.dashboard-item {
+  transition: all 0.3s ease;
+  background: white;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  justify-content: center;
+}
+.item-title {
+  font-weight: bold;
+}
+
+
+.dashboard-item:hover {
+  background: #ddd;
+  animation: color 0.3s;
+}
+@keyframes color {
+  from {background: white;}
+  to {background: #ddd;}
+}
+
+

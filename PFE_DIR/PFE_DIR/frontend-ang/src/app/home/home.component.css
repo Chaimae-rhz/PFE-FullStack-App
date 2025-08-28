@@ -1,0 +1,78 @@
+body {
+  background-color: #f4f4f9;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container {
+  margin-top: 50px;
+}
+
+h3 {
+  font-size: 1.8rem;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+.demande {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  padding: 20px;
+  transition: transform 0.2s ease-in-out;
+}
+
+.demande:hover {
+  transform: translateY(-5px);
+}
+
+.demande .row {
+  margin-bottom: 10px;
+}
+
+.demande strong {
+  color: #555;
+}
+
+.demande p.text-muted {
+  margin-top: 5px;
+  font-size: 0.9rem;
+  color: #888;
+}
+
+.demande img {
+  max-height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+  transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+  border-color: #004085;
+}
+
+.alert {
+  margin-top: 20px;
+}
+
+.lux-header {
+  background-color: #343a40;
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+  border-radius: 0 0 10px 10px;
+  margin-bottom: 40px;
+}
+
+.lux-header h1 {
+  margin: 0;
+  font-size: 2.2rem;
+}

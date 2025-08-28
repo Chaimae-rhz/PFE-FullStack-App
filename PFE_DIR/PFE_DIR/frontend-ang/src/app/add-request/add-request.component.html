@@ -1,0 +1,62 @@
+<div class="container">
+  <mat-card>
+    <mat-card-header class="header">
+      <mat-card-title class="card-title">Espace de création des demandes</mat-card-title>
+    </mat-card-header>
+    <mat-divider></mat-divider>
+    <mat-card-content>
+      <form [formGroup]="demandeFormGroup" (ngSubmit)="handleDemande()" class="form-content">
+        <h2 class="form-title">Créer une demande</h2>
+        <div class="form-field">
+          <mat-form-field appearance="fill" class="full-width">
+            <mat-label>Titre</mat-label>
+            <input matInput formControlName="title">
+          </mat-form-field>
+        </div>
+        <div class="form-field">
+          <mat-form-field appearance="fill" class="full-width">
+            <mat-label>Description</mat-label>
+            <textarea matInput formControlName="description" rows="4"></textarea>
+          </mat-form-field>
+        </div>
+        <div class="form-field">
+          <mat-form-field appearance="fill" class="full-width">
+            <mat-label>Priorité</mat-label>
+            <mat-select formControlName="priority" required>
+              <mat-option *ngFor="let priority of priorityOption" [value]="priority">
+                {{ priority }}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="demandeFormGroup.get('priority')?.hasError('required')">
+              La priorité est requise
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="form-field file-input-container">
+          <label for="imageInput" class="custom-file-label">
+            <span id="fileName">Choisir une image</span>
+            <mat-icon>add_photo_alternate</mat-icon>
+            <input id="imageInput" type="file" class="custom-file-input" (change)="handleImageInput($event)">
+          </label>
+          <div *ngIf="imageError" class="error-message">{{ imageError }}</div>
+        </div>
+
+        <div *ngIf="previewUrl" class="image-preview-container">
+          <img [src]="previewUrl" alt="Image preview" class="image-preview">
+        </div>
+
+        <div class="button-container">
+          <button mat-raised-button color="primary" [disabled]="sending || !demandeFormGroup.valid || isCooldown" type="submit">
+            <span *ngIf="!sending">Envoyer</span>
+            <span *ngIf="sending"><mat-spinner diameter="20"></mat-spinner></span>
+            <mat-icon>send</mat-icon>
+          </button>
+          <div *ngIf="isCooldown" class="countdown">
+            Vous devez attendre {{ countdown.hours }} h {{ countdown.minutes }} min {{ countdown.seconds }} s avant de pouvoir créer une nouvelle demande.
+          </div>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

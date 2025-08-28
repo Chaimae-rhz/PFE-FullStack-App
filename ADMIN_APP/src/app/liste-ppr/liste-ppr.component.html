@@ -1,0 +1,50 @@
+
+
+<div class="container">
+
+  <mat-card class="user-list-card">
+    <mat-card-header>
+      <mat-card-title class="userStyle">Liste PPR</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <mat-form-field appearance="outline">
+        <mat-label class="filter">Filter</mat-label>
+        <input matInput (keyup)="filterData($event)">
+      </mat-form-field>
+      <div class="table-container">
+        <table matSort mat-table [dataSource]="dataSource" class="mat-elevation-z1">
+          <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> ID</th>
+            <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+          </ng-container>
+
+
+
+
+
+          <ng-container matColumnDef="ppr">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> PPR</th>
+            <td mat-cell *matCellDef="let element"> {{element.ppr}} </td>
+          </ng-container>
+
+
+          <ng-container matColumnDef="dateNaissance">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Date Naissance</th>
+            <td mat-cell *matCellDef="let element" > {{element.dateNaissance | date: 'yyyy-MM-dd'}} </td>
+          </ng-container>
+
+
+          <tr mat-header-row class="first-row" *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+        <mat-paginator [pageSizeOptions]="[5, 10, 20,30,40,100]"
+                       showFirstLastButtons
+                       aria-label="Select page of periodic elements">
+        </mat-paginator>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+

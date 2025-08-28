@@ -1,0 +1,31 @@
+<div class="container">
+  <mat-card class="login-card" [formGroup]="loginForm">
+    <div class="header">
+      <div class="logo">
+        <span class="logo-text">A</span>
+      </div>
+      <mat-card-subtitle>Welcome back</mat-card-subtitle>
+    </div>
+    <mat-card-content>
+      <mat-form-field appearance="outline" class="form-field" >
+        <mat-icon matSuffix>email</mat-icon>
+        <mat-label>Email</mat-label>
+        <input matInput  class="input"  formControlName="email" type="email" >
+
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="form-field" >
+        <mat-label>Mot de passe</mat-label>
+        <input matInput [type]="showPassword ? 'text' : 'password'" class="input" formControlName="password" placeholder="Mot de passe">
+        <button mat-icon-button matSuffix (click)="togglePasswordVisibility()">
+          <mat-icon>{{ showPassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+        </button>
+      </mat-form-field>
+
+      <button mat-button  class="forgot-password" (click)="forgotPassword()">Mot de passe oublié ?</button>
+    </mat-card-content>
+    <mat-card-actions align="end" >
+      <button mat-raised-button color="primary" class="submit-btn" (click)="login()" [disabled]="loginForm.invalid">Connéxion</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
+

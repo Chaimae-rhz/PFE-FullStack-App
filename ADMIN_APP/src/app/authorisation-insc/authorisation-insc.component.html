@@ -1,0 +1,24 @@
+<div class="container mt-3">
+  <form (ngSubmit)="onSubmit()" >
+    <h2 class="mb-4 title">Autoriser Inscription</h2>
+    <mat-form-field>
+      <mat-label>PPR</mat-label>
+      <input matInput required [(ngModel)]="user.ppr" name="ppr">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Date de Naissance</mat-label>
+      <input matInput [matDatepicker]="picker" required [(ngModel)]="user.dateNaissance" name="dateNaissance">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+
+
+    <div class="mt-4 d-flex justify-content-between">
+      <button mat-button class="mat-accent" type="button" (click)="cancel()">Cancel</button>
+      <button mat-raised-button class="save" type="submit">Save</button>
+    </div>
+  </form>
+</div>
+

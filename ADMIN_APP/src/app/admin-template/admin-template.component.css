@@ -1,0 +1,73 @@
+.button-color-gradient {
+  background: linear-gradient(to right, #226b80, #35b0ab);
+  /* Autres propriétés de style si nécessaire */
+}
+.custom-toolbar {
+  background: #eeeeee;
+
+}
+
+
+
+.drawer{
+  background: #eeeeee;
+}
+.button{
+  color:black;
+}
+.button:hover {
+  background: linear-gradient(to right, #226b80, #35b0ab);
+  color:white;
+}
+.app-title {
+  font-family: 'Lobster';
+  font-size:40px;
+  padding-left:20px;
+  background: linear-gradient(to right,  #226b80, #35b0ab); /* Double couleur de fond */
+  -webkit-background-clip: text; /* Permettre au texte de s'afficher avec le fond dégradé */
+  -webkit-text-fill-color: transparent; /* Masquer la couleur du texte pour permettre l'effet de dégradé */
+  cursor: pointer; /* Curseur de type pointer */
+  border-bottom: 1px solid transparent; /* Ajouter un trait transparent en bas */
+  transition: color 0.3s, border-bottom-color 0.3s; /* Transition pour l'animation du changement de couleur */
+}
+
+/* Ajouter un trait sous le titre lorsqu'il est survolé */
+.app-title:hover {
+  border-bottom-color: #35b0ab; /* Couleur du trait au survol */
+}
+
+/* Changer la couleur du texte lorsqu'il est survolé */
+.app-title:hover {
+  color:  #35b0ab; /* Nouvelle couleur du texte au survol */
+}
+.custom-button{
+  font-family: 'Lobster';
+  font-size:20px;
+  padding-left:20px;
+  background: linear-gradient(to right,  #226b80, #35b0ab); /* Double couleur de fond */
+  -webkit-background-clip: text; /* Permettre au texte de s'afficher avec le fond dégradé */
+  -webkit-text-fill-color: transparent; /* Masquer la couleur du texte pour permettre l'effet de dégradé */
+  cursor: pointer; /* Curseur de type pointer */
+  border-bottom: 1px solid transparent; /* Ajouter un trait transparent en bas */
+  transition: color 0.3s, border-bottom-color 0.3s; /* Transition pour l'animation du changement de couleur */
+}
+
+.custom-button:hover{
+  border-bottom-color: #35b0ab;
+}
+.maintenance-icon {
+  font-size: 24px; /* Taille de l'icône */
+  color: #4CAF50; /* Couleur de l'icône "check_circle" */
+  /* Ajoutez d'autres styles CSS selon vos préférences */
+}
+.cancel {
+  font-size: 24px; /* Taille de l'icône */
+  color: #e74c3c; /* Couleur de l'icône "cancel" */
+  /* Ajoutez d'autres styles CSS selon vos préférences */
+}
+.settings{
+  background:linear-gradient(to right,  #226b80, #35b0ab);
+  color:white !important;
+}
+
+

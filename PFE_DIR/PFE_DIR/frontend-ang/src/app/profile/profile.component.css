@@ -1,0 +1,106 @@
+.profile-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.profile-card {
+  width: 100%;
+  max-width: 600px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #f9f9f9;
+}
+
+.animated-header {
+  animation: colorChange 5s infinite alternate;
+}
+
+mat-card-title {
+  font-size: 24px;
+  color: #483f48;
+  text-align:center;
+}
+
+mat-card-content p {
+  font-size: 16px;
+  margin: 10px 0;
+}
+
+mat-card-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+button[mat-raised-button] {
+  color: white;
+  transition: background-color 0.3s, transform 0.3s;
+  animation: buttonColorChange 5s infinite alternate;
+}
+
+button[mat-raised-button]:hover {
+  transform: translateY(-2px);
+}
+
+button[mat-button] {
+  color: #3f51b5;
+}
+
+button[mat-button]:hover {
+  background-color: rgba(63, 81, 181, 0.1);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes colorChange {
+  0% {
+    background-color: #aee8d0;
+  }
+  20% {
+    background-color: #cce4f6;
+  }
+  40% {
+    background-color: #bceebe;
+  }
+  60% {
+    background-color: #e7c3ef;
+  }
+  80% {
+    background-color: #e0e0e0;
+  }
+  100% {
+    background-color: #eebbbb;
+  }
+}
+
+@keyframes buttonColorChange {
+  0% {
+    background-color: #ebd3f1;
+  }
+  20% {
+    background-color: #64b5f6;
+  }
+  40% {
+    background-color: #81c784;
+  }
+  60% {
+    background-color: #ba68c8;
+  }
+  80% {
+    background-color: #e0e0e0;
+  }
+  100% {
+    background-color: #8b8c91;
+  }
+}

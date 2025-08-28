@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your App Title</title>
+  <!-- Inclure le lien vers la police Lobster -->
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+</head>
+<body>
+<mat-toolbar class="custom-toolbar fixed-header">
+  <button mat-icon-button (click)="drawer.toggle()">
+     <mat-icon>menu</mat-icon>
+  </button>
+
+
+
+  <span class="app-title">{{ appName }}</span>
+
+
+  <span style="flex:auto"></span>
+
+  <button *ngIf="authService.hasRole('SuperAdmin')" mat-button [matMenuTriggerFor]="maintenanceMenu" class="button">
+    <mat-icon>build</mat-icon>
+    Maintenance
+  </button>
+
+  <button mat-button routerLink="/admin/profile" class="button">
+    <mat-icon>account_circle</mat-icon>
+    Profile
+  </button>
+  <span  class="custom-button"  >
+    Admin
+  </span>
+  <button mat-raised-button color="primary button-color-gradient" (click)="logout()">
+
+    Déconnexion
+    <mat-icon class="icon-right">exit_to_app</mat-icon>
+  </button>
+
+</mat-toolbar>
+<mat-drawer-container >
+  <mat-drawer #drawer opened="true" mode="side" position="start" class="drawer">
+    <mat-list >
+      <mat-list-item>
+        <button mat-button routerLink="/admin/dashboard" class="button">
+          <mat-icon>dashboard</mat-icon>
+          Tableau De Bord
+        </button>
+      </mat-list-item>
+      <mat-list-item>
+        <button mat-button routerLink="/admin/ListePPR" class="button">
+          <mat-icon>dashboard</mat-icon>
+          Liste PPR
+        </button>
+      </mat-list-item>
+      <mat-list-item>
+        <button mat-button routerLink="/admin/users"  class="button">
+          <mat-icon>account_circle</mat-icon>
+          Liste Utilisateurs
+        </button>
+      </mat-list-item>
+      <mat-list-item>
+        <button mat-button routerLink="/admin/listeAdmin" class="button">
+          <mat-icon>account_circle</mat-icon>
+          Liste Admins
+        </button>
+      </mat-list-item>
+      <mat-list-item>
+        <button mat-button routerLink="/admin/personnelList"  class="button">
+          <mat-icon>account_circle</mat-icon>
+          Liste Personnels
+        </button>
+      </mat-list-item>
+      <mat-list-item>
+        <button mat-button routerLink="/admin/requests" class="button">
+          <mat-icon>receipt</mat-icon>
+          Liste Demandes
+        </button>
+      </mat-list-item>
+      <mat-list-item>
+        <button mat-button routerLink="/admin/usersRequests"  class="button">
+          <mat-icon>receipt</mat-icon>
+           Demandes Utilisateurs
+        </button>
+      </mat-list-item>
+
+      <mat-list-item>
+        <button mat-button routerLink="/admin/emailAdmin"  class="settings">
+          <mat-icon>settings</mat-icon>
+          Configuration Email App
+        </button>
+      </mat-list-item>
+      <mat-menu #maintenanceMenu="matMenu">
+        <button mat-menu-item (click)="toggleMaintenanceMode(true)">
+
+          Activer
+        </button>
+        <button mat-menu-item (click)="toggleMaintenanceMode(false)">
+
+          Désactiver
+        </button>
+      </mat-menu>
+      <mat-list-item>
+        <span >
+
+          Etat maintenance:
+           <mat-icon *ngIf="maintenanceMode"  class="maintenance-icon">check_circle</mat-icon>
+          <mat-icon *ngIf="!maintenanceMode"  class="cancel">cancel</mat-icon>
+        </span >
+      </mat-list-item>
+    </mat-list>
+  </mat-drawer>
+  <mat-drawer-content>
+    <div style="min-height:600px">
+       <router-outlet></router-outlet>
+    </div>
+  </mat-drawer-content>
+</mat-drawer-container>
+<footer class="bg-light text-center text-lg-start">
+  <!-- Copyright -->
+  <div class="text-center p-3" style="background-color:  #eeeeee;">
+    © 2024 Copyright:
+    <a class="text-dark" href="https://fs-umi.ac.ma/">Faculté des sciences de Meknès</a>
+  </div>
+  <!-- Copyright -->
+</footer>
+</body>
+
+</html>

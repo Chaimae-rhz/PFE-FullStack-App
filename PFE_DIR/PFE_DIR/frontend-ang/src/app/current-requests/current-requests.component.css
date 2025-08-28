@@ -1,0 +1,119 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  background: linear-gradient(to right, #ece9e6, #ffffff);
+  color: #333;
+  overflow-x: hidden;
+}
+
+.container {
+  padding: 2rem 0;
+}
+
+h3 {
+  color: #2c3e50;
+  margin-bottom: 1.5rem;
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: 1px;
+  position: relative;
+}
+
+h3:before {
+  content: '';
+  width: 50px;
+  height: 5px;
+  background: #007bff;
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.mat-card {
+  margin-bottom: 20px;
+  border-radius: 15px;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: #ffffff;
+  overflow: hidden;
+  position: relative;
+  padding: 20px;
+}
+
+.mat-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.mat-card-header {
+  background: linear-gradient(45deg, #007bff, #0056b3);
+  color: #fff;
+  border-radius: 15px 15px 0 0;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.mat-card-title {
+  color: #fff;
+  font-size: 1.75rem;
+  font-weight: 500;
+}
+
+.mat-divider {
+  margin: 1rem 0;
+}
+
+.mat-card-content {
+  padding: 1.5rem;
+}
+
+.demande-info strong {
+  font-weight: 500;
+  color: #2c3e50;
+}
+
+.description p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #555;
+  margin-top: 1rem;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.mat-card {
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+.demande-image {
+  width: 100%;
+  max-width: 300px; /* Taille maximale de l'image */
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  object-fit: cover; /* Pour s'assurer que l'image garde son ratio */
+}
+
+.demande-image:hover {
+  transform: scale(1.05);
+}
+
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

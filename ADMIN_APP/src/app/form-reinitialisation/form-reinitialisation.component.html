@@ -1,0 +1,28 @@
+<div class="reset-password-container">
+  <h2>Réinitialiser le mot de passe</h2>
+  <form [formGroup]="resetPasswordForm" (ngSubmit)="submitResetPasswordForm()">
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Nouveau mot de passe</mat-label>
+      <input matInput [type]="hidePassword ? 'password' : 'text'" formControlName="password">
+      <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePassword">
+        <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+      <mat-error *ngIf="resetPasswordForm.get('password')!.invalid && resetPasswordForm.get('password')!.touched">
+        {{ getErrorMessage('password') }}
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Confirmer le mot de passe</mat-label>
+      <input matInput [type]="hideConfirmPassword ? 'password' : 'text'" formControlName="confirmPassword">
+      <button mat-icon-button matSuffix (click)="hideConfirmPassword = !hideConfirmPassword" [attr.aria-label]="'Hide confirm password'" [attr.aria-pressed]="hideConfirmPassword">
+        <mat-icon>{{hideConfirmPassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+      <mat-error *ngIf="resetPasswordForm.get('confirmPassword')!.invalid && resetPasswordForm.get('confirmPassword')!.touched">
+        {{ getErrorMessage('confirmPassword') }}
+      </mat-error>
+    </mat-form-field>
+
+    <button mat-raised-button  class="full-width submit " [disabled]="resetPasswordForm.invalid">Réinitialiser le mot de passe</button>
+  </form>
+</div>

@@ -1,0 +1,166 @@
+nav {
+  display: flex;
+  justify-content: flex-end;
+}
+
+button {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+  margin-bottom: 18px;
+  padding: 10px 20px;
+  background-color: #35b0ab;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.table-container {
+  overflow-x: auto;
+}
+.button-icon {
+  margin-right: 5px; /* Ajoutez une marge à droite pour l'espacement entre l'icône et le texte */
+}
+
+
+.table-container {
+
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre portée */
+  border-radius: 8px; /* Bordure arrondie */
+  overflow: hidden; /* Pour cacher les coins de l'ombre */
+
+
+
+}
+.userStyle {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #35b0ab;
+  text-transform: uppercase;
+
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
+}
+.userStyle::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: #35b0ab;
+  margin: 10px auto;
+}
+
+.button-container {
+  display: flex;
+  align-items: center;
+
+}
+
+button mat-icon {
+  margin-right: 5px; /* Marge à droite pour espacer les icônes des textes */
+}
+
+
+.container {
+  margin: 20px;
+}
+
+.nav {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.button-container {
+  display: flex;
+}
+
+.custom-icon-button {
+  margin-right: 5px;
+  background-color:#35b0ab; /* Green */
+  border: none;
+  color: white;
+  padding: 8px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition-duration: 0.4s;
+}
+
+.custom-icon-button:hover {
+  background-color: #45a049; /* Darker Green */
+}
+
+.mat-card {
+  border-radius: 10px;
+  box-shadow: 0 4px 15px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+}
+
+.mat-card:hover {
+  box-shadow: 0 8px 23px 0 rgba(0,0,0,0.2);
+}
+
+.mat-card-header {
+  background-color: #4CAF50; /* Green */
+  color: white;
+  border-radius: 10px 10px 0 0;
+}
+
+.mat-card-content {
+  padding: 20px;
+}
+
+.table-container {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  color : #35b0ab;
+  font-weight:normal; /* Poids de la police */
+}
+.img-small {
+  max-width: 200px; /* Largeur maximale souhaitée */
+  max-height: 200px; /* Hauteur maximale souhaitée */
+  height: auto;
+  transition: transform 0.6s ease; /* Ajoutez une transition pour une animation fluide */
+}
+
+.img-small:hover {
+  transform: scale(2); /* Appliquez une transformation d'échelle au survol */
+}
+
+tr:hover {
+  background-color: #f5f5f5;
+}
+
+.mat-paginator {
+  margin-top: 20px;
+}
+
+
+.first-row {
+  background-color: #f5f5f5;
+}
+.user-list-card {
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1); /* Ombre portée */
+}
+.largeur {
+  max-width: 200px; /* Définir la largeur maximale souhaitée */
+  white-space: nowrap; /* Empêcher le retour à la ligne */
+  overflow: hidden; /* Cacher le texte qui déborde */
+  text-overflow: ellipsis; /* Ajouter des points de suspension à la fin du texte */
+}

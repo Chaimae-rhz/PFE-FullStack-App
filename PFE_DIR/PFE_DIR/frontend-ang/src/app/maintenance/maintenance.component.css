@@ -1,0 +1,48 @@
+
+.maintenance-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f3f4f6;
+  text-align: center;
+}
+
+.maintenance-content {
+  max-width: 600px;
+  padding: 20px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.maintenance-image {
+  width: 150px;
+  margin-bottom: 20px;
+}
+
+.maintenance-title {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  color: #333333;
+}
+
+.maintenance-message {
+  font-size: 1.2rem;
+  color: #666666;
+  margin-bottom: 20px;
+}
+
+.maintenance-footer {
+  font-size: 0.9rem;
+  color: #888888;
+}
+
+.maintenance-footer a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.maintenance-footer a:hover {
+  text-decoration: underline;
+}

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Assets Sci</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+<mat-toolbar class="custom-toolbar d-flex align-items-center">
+  <button mat-icon-button (click)="myDrawer.toggle()">
+    <mat-icon>bar_chart</mat-icon>
+  </button>
+  <span class="app-title flex-grow-1">{{ appName }}</span>
+  <span style="flex: auto"></span>
+  <div class="desktop-menu">
+    <button mat-button routerLink="/user/home" class="button"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon>Accueil</button>
+    <button mat-button routerLink="/user/profile" class="button"><mat-icon>account_circle</mat-icon>Profil</button>
+    <button mat-button [matMenuTriggerFor]="DemandeMenu" class="button"><mat-icon>assignment</mat-icon>DemandeMenu<mat-icon>keyboard_arrow_down</mat-icon></button>
+    <mat-menu #DemandeMenu>
+      <button mat-menu-item routerLink="/user/add-request"><mat-icon class="color-changing-icon">add_circle</mat-icon>Ajouter une demande</button>
+      <button mat-menu-item routerLink="/user/current-requests"><mat-icon class="color-changing-icon">list_alt</mat-icon>Demandes courantes</button>
+      <button mat-menu-item routerLink="/user/requests-completed"><mat-icon class="color-changing-icon">check_circle</mat-icon>Demandes achevées</button>
+    </mat-menu>
+    <button mat-button *ngIf="authService.isAuthenticated">{{authService.username}}</button>
+    <button mat-raised-button color="primary" class="button-color-gradient" (click)="logout()">
+      <mat-icon>exit_to_app</mat-icon>Se déconnecter
+    </button>
+  </div>
+  <div class="mobile-menu">
+    <input type="checkbox" id="menu-toggle" class="menu-toggle">
+    <label for="menu-toggle" class="menu-icon"><mat-icon>menu</mat-icon></label>
+    <div class="menu">
+      <button mat-menu-item routerLink="/user/home" class="button"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon>Accueil</button>
+      <button mat-menu-item routerLink="/user/profile" class="button"><mat-icon>account_circle</mat-icon>Profil</button>
+      <button mat-menu-item routerLink="/user/add-request"><mat-icon class="color-changing-icon">add_circle</mat-icon>Ajouter une demande</button>
+      <button mat-menu-item routerLink="/user/current-requests"><mat-icon class="color-changing-icon">list_alt</mat-icon>Demandes courantes</button>
+      <button mat-menu-item routerLink="/user/requests-completed"><mat-icon class="color-changing-icon">check_circle</mat-icon>Demandes achevées</button>
+      <button mat-menu-item *ngIf="authService.isAuthenticated">{{authService.username}}</button>
+      <button mat-menu-item color="primary" class="button-color-gradient" (click)="logout()">
+        <mat-icon>exit_to_app</mat-icon>Se déconnecter
+
+      </button>
+    </div>
+  </div>
+</mat-toolbar>
+
+<mat-drawer-container class="content-container">
+  <mat-drawer #myDrawer opened="false" mode="side" position="start" class="drawer fixed-drawer">
+    <h3>Statistiques des Demandes <mat-icon>whatshot</mat-icon></h3>
+    <mat-list-item class="stat-item">
+      <mat-icon>assignment</mat-icon>
+      <span>Total des demandes : {{ totalDemandes }}</span>
+    </mat-list-item>
+    <mat-list>
+      <mat-list-item class="stat-item">
+        <mat-icon>check_circle</mat-icon>
+        <span>Demandes traitées : {{ countTraitee }}</span>
+      </mat-list-item>
+      <mat-list-item class="stat-item">
+        <mat-icon>cancel</mat-icon>
+        <span>Demandes rejetées : {{ countRejetee }}</span>
+      </mat-list-item>
+      <mat-list-item class="stat-item">
+        <mat-icon>hourglass_empty</mat-icon>
+        <span>Demandes en attente : {{ countEnAttente }}</span>
+      </mat-list-item>
+      <mat-list-item class="stat-item">
+        <mat-icon>play_circle_filled</mat-icon>
+        <span>Demandes en cours : {{ countEnCours }}</span>
+      </mat-list-item>
+      <mat-list-item class="stat-item">
+        <mat-icon>priority_high</mat-icon>
+        <span>Demandes urgentes : {{ countUrgente }}</span>
+      </mat-list-item>
+      <mat-list-item class="stat-item">
+        <mat-icon>low_priority</mat-icon>
+        <span>Demandes normales : {{ countNormale }}</span>
+      </mat-list-item>
+      <mat-list-item class="stat-item">
+        <mat-icon>low_priority</mat-icon>
+        <span>Demandes basses : {{ countBasse }}</span>
+      </mat-list-item>
+      <mat-list-item class="stat-item">
+        <mat-icon>redo</mat-icon>
+        <span>Demandes renvoyées : {{ countRenvoyees }}</span>
+      </mat-list-item>
+    </mat-list>
+  </mat-drawer>
+  <mat-drawer-content>
+    <div style="min-height: calc(100vh - 200px)"> <!-- 200px est une valeur de hauteur supplémentaire pour le footer -->
+      <router-outlet></router-outlet>
+    </div>
+  </mat-drawer-content>
+</mat-drawer-container>
+
+<footer class="footer bg-light text-center text-lg-start">
+  <div class="container p-4">
+    <div class="row justify-content-center">
+      <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+        <h5 class="text-uppercase">Faculté des sciences de Meknès</h5>
+        <p>Améliorer l'avenir à travers l'éducation et la recherche.</p>
+      </div>
+    </div>
+  </div>
+  <div class="text-center p-3 bg-dark text-white">
+    © 2024 Copyright:
+    <a class="text-white" href="https://fs-umi.ac.ma/">Faculté des sciences de Meknès</a>
+  </div>
+</footer>
+
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+</html>

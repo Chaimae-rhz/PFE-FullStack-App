@@ -1,0 +1,55 @@
+<div class="container mx-auto">
+  <mat-card *ngFor="let demande of demandes" class="demande bg-white shadow-md rounded-lg mb-8">
+    <mat-card-header class="bg-gradient-to-r from-blue-500 to-purple-600 py-6 px-8 rounded-t-xl text-white">
+      <mat-card-title class="text-2xl font-bold">
+        Demande Terminée
+        <mat-icon class="text-yellow-500">check_circle</mat-icon>
+      </mat-card-title>
+    </mat-card-header>
+    <mat-divider></mat-divider>
+    <mat-card-content class="p-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Informations générales -->
+        <div class="text-gray-700">
+          <h2 class="text-lg font-semibold mb-2">Informations Générales</h2>
+          <mat-card-subtitle><span class="font-semibold text-blue-500">ID :</span> {{ demande.id }}</mat-card-subtitle>
+          <mat-card-subtitle>
+            <span class="font-semibold text-blue-500">Description :</span> {{ demande.description }}
+            <button mat-icon-button (click)="toggleSpeech(demande.description)">
+              <mat-icon>volume_up</mat-icon>
+            </button>
+          </mat-card-subtitle>
+          <mat-card-subtitle><span class="font-semibold text-blue-500">Statut :</span> {{ demande.status }} <span class="material-icons text-green-500">check_circle</span></mat-card-subtitle>
+          <mat-card-subtitle><span class="font-semibold text-blue-500">Titre :</span> {{ demande.title }}</mat-card-subtitle>
+          <mat-card-subtitle><span class="font-semibold text-blue-500">Créée Le :</span> {{ demande.createdAt | date }}</mat-card-subtitle>
+          <mat-card-subtitle><span class="font-semibold text-blue-500">Priorité :</span> {{ demande.priority }}</mat-card-subtitle>
+          <mat-card-subtitle><span class="font-semibold text-blue-500">Date de Renvoie :</span> {{ demande.dateResubmission | date }}</mat-card-subtitle>
+          <mat-card-subtitle>
+            <span class="font-semibold text-blue-500">Remarque :</span> {{ demande.remarque }}
+            <button mat-icon-button (click)="toggleSpeech(demande.remarque)">
+              <mat-icon>volume_up</mat-icon>
+            </button>
+          </mat-card-subtitle>
+        </div>
+        <!-- Images -->
+        <div class="flex flex-col justify-center items-center">
+          <h2 class="text-lg font-semibold mb-2">Images Avant et Après</h2>
+          <div class="flex justify-between">
+            <div class="image-container">
+              <a [href]="demande.file_imageBefore || 'assets/logo_par_defaut.jpg'" target="_blank">
+                <p class="text-center font-semibold text-blue-500">Avant</p>
+                <img [src]="demande.file_imageBefore || 'assets/logo_par_defaut.jpg'" alt="Avant" class="img-size mb-4 rounded-lg shadow-md transition-transform duration-300 transform hover:scale-105">
+              </a>
+            </div>
+            <div class="image-container">
+              <a [href]="demande.file_imageAfter || 'assets/logo_par_defaut.jpg'" target="_blank">
+                <p class="text-center font-semibold text-blue-500">Après</p>
+                <img [src]="demande.file_imageAfter || 'assets/logo_par_defaut.jpg'" alt="Après" class="img-size ml-6 rounded-lg shadow-md transition-transform duration-300 transform hover:scale-105">
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

@@ -1,0 +1,36 @@
+<div class="container">
+  <mat-card class="login-form" [formGroup]="loginForm">
+    <mat-card-header>
+      <div class="header-content">
+        <div class="logo-container">
+          <div class="logo">U</div>
+        </div>
+        <mat-card-title>Authentication</mat-card-title>
+      </div>
+    </mat-card-header>
+
+    <mat-card-content>
+      <mat-form-field appearance="outline">
+        <mat-label>Username</mat-label>
+        <input matInput formControlName="username">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Mot de passe</mat-label>
+        <input matInput type="password" formControlName="password">
+      </mat-form-field>
+      <div class="countdown-container" *ngIf="isLocked">
+        <div class="lock-icon">
+          <mat-icon>lock</mat-icon>
+        </div>
+        <div class="countdown-circle">
+          <span>{{ countdown }}</span>
+        </div>
+      </div>
+    </mat-card-content>
+    <mat-card-actions align="end">
+      <button mat-raised-button color="primary" [disabled]="isLocked" (click)="login()" class="login-button">Login</button>
+      <button mat-button color="accent" routerLink="/signup">Créer un compte</button>
+      <button mat-button color="warn" (click)="openForgotPasswordDialog()" [ngClass]="{'shake': shakeButton}">Mot de passe oublié ?</button>
+    </mat-card-actions>
+  </mat-card>
+</div>

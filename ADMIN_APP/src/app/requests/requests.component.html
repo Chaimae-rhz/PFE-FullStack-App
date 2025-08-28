@@ -1,0 +1,126 @@
+
+<div class="container">
+
+  <mat-card class="user-list-card">
+    <mat-card-header>
+      <mat-card-title class="userStyle">Liste Demandes </mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <mat-form-field appearance="outline">
+        <mat-label class="filter">Filter</mat-label>
+        <input matInput (keyup)="filterData($event)">
+      </mat-form-field>
+      <div class="table-container">
+      <table matSort mat-table [dataSource]="dataSource" class="mat-elevation-z1">
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> ID</th>
+          <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="username">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Nom Complet</th>
+          <td mat-cell *matCellDef="let element"> {{element.user?.username}} </td>
+        </ng-container>
+        <ng-container matColumnDef="email">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Email</th>
+          <td mat-cell *matCellDef="let element"> {{element.user?.email}} </td>
+        </ng-container>
+        <ng-container matColumnDef="phoneNumber">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Téléphone</th>
+          <td mat-cell *matCellDef="let element"> {{element.user?.phoneNumber}} </td>
+        </ng-container>
+        <ng-container matColumnDef="role">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Role</th>
+          <td mat-cell *matCellDef="let element"> {{element.user?.role}} </td>
+        </ng-container>
+        <ng-container matColumnDef="programeId">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Filière</th>
+          <td mat-cell *matCellDef="let element"> {{element.user?.programeId}} </td>
+        </ng-container>
+        <ng-container matColumnDef="title">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Titre </th>
+          <td mat-cell *matCellDef="let element" class="largeur" matTooltip="{{element.title}}"> {{element.title}} </td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="description">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Description </th>
+          <td mat-cell *matCellDef="let element" class="largeur" matTooltip="{{element.description}}"> {{element.description}} </td>
+        </ng-container>
+        <ng-container matColumnDef="file_imageBefore">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Avant Reparation</th>
+          <td mat-cell *matCellDef="let element">  <img class="img-small" [src]="element.file_imageBefore" > </td>
+        </ng-container>
+        <ng-container matColumnDef="priority">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Priorité </th>
+          <td mat-cell *matCellDef="let element"> {{element.priority}} </td>
+        </ng-container>
+        <ng-container matColumnDef="status">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Statut </th>
+          <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+        </ng-container>
+        <ng-container matColumnDef="remarque">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Remarque </th>
+          <td mat-cell *matCellDef="let element" class="largeur" matTooltip="{{element.remarque}}"> {{element.remarque}} </td>
+        </ng-container>
+        <ng-container matColumnDef="dateResubmission">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Date Renvoie</th>
+          <td mat-cell *matCellDef="let element"> {{element.dateResubmission | date: 'dd/MM/yyyy HH:mm'}} </td>
+        </ng-container>
+        <ng-container matColumnDef="file_imageAfter">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Après Reparation </th>
+          <td mat-cell *matCellDef="let element"> <img class="img-small" [src]="element.file_imageAfter" > </td>
+        </ng-container>
+        <ng-container matColumnDef="createdAt">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Crée le  </th>
+          <td mat-cell *matCellDef="let element"> {{element.createdAt | date: 'dd/MM/yyyy HH:mm'}} </td>
+        </ng-container>
+        <ng-container matColumnDef="usernamePers">
+          <th mat-header-cell *matHeaderCellDef>Assign</th>
+          <td mat-cell *matCellDef="let element">
+            <mat-form-field>
+              <mat-select
+                placeholder="Attribuer à"
+                [value]="element.personnel?.id"
+                (selectionChange)="assignDemande(element.id, $event.value)"
+              >
+                <mat-option *ngFor="let personnel of personnels" [value]="personnel.id">
+                  {{ personnel.usernamePers }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="action">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Actions</th>
+          <td mat-cell *matCellDef="let element">
+            <div class="button-container">
+              <button (click)="updateDemande(element.id)" mat-raised-button class="custom-icon-button">
+                <mat-icon>edit</mat-icon>
+              </button>
+              <button mat-raised-button (click)="deleteDemande(element.id)" class="custom-icon-button">
+                <mat-icon>delete</mat-icon>
+              </button>
+
+              <button *ngIf="element.personnel" mat-raised-button (click)="unassignDemande(element.id)" class="custom-icon-button">
+                Désassigner
+              </button>
+            </div>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row class="first-row" *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+      <mat-paginator [pageSizeOptions]="[5, 10, 20,30,40,100]"
+                     showFirstLastButtons
+                     aria-label="Select page of periodic elements">
+      </mat-paginator>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
+

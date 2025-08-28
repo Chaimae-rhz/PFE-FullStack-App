@@ -1,0 +1,141 @@
+/* Container styling */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  font-family: 'Playfair Display', serif; /* Elegant font */
+}
+
+/* Card styling */
+.demande {
+  padding: 20px;
+  border-radius: 1rem;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.demande:hover {
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
+}
+
+/* Header styling */
+.bg-blue-500 {
+  background-color: #3b82f6;
+}
+
+.bg-gradient-to-r {
+  background: linear-gradient(to right, #3b82f6, #8b5cf6);
+}
+
+.text-blue-600 {
+  color: #2563eb;
+}
+
+.text-white {
+  color: #fff;
+}
+
+.font-bold {
+  font-weight: bold;
+}
+
+.font-semibold {
+  font-weight: 600;
+}
+
+/* Subtitle styling */
+.mat-card-subtitle {
+  margin: 0.5rem 0;
+}
+
+/* Grid styling */
+.grid {
+  display: grid;
+}
+
+.grid-cols-1 {
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+.md\:grid-cols-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.gap-6 {
+  gap: 1.5rem;
+}
+
+/* Flexbox styling */
+.flex {
+  display: flex;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.rounded-lg {
+  border-radius: 0.5rem;
+}
+
+.shadow-md {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.shadow-lg {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.shadow-2xl {
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* Image container styling */
+.image-container {
+  width: 100%; /* Ensure images occupy full width of container */
+  max-width: 150px; /* Set a max-width for images */
+  margin: 0 10px; /* Margin between images */
+}
+
+/* Image styling */
+.img-size {
+  width: 100%; /* Image occupies full width of container */
+  height: 150px; /* Fixed height */
+  object-fit: cover; /* Ensure the image covers the container without distortion */
+}
+
+.transition-transform {
+  transition-property: transform;
+}
+
+.duration-300 {
+  transition-duration: 300ms;
+}
+
+.hover\:scale-105:hover {
+  transform: scale(1.05);
+}
+
+.hover\:scale-110:hover {
+  transform: scale(1.10);
+}
+
+/* Responsive styling for mobile */
+@media screen and (max-width: 768px) {
+  .image-container {
+    max-width: 100px; /* Adjust max-width for smaller screens */
+  }
+
+  .img-size {
+    height: 100px; /* Adjust height for smaller screens */
+  }
+}

@@ -1,0 +1,32 @@
+.confirm-dialog-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #f44336; /* Rouge pour accentuer l'alerte */
+}
+
+mat-dialog-content p {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #555;
+}
+
+mat-dialog-actions {
+  margin-top: 20px;
+}
+
+button {
+  min-width: 100px;
+  font-size: 14px;
+}
+
+button[color="warn"] {
+  background-color:  #d32f2f;
+  color: white;
+}
+
+button[color="warn"]:hover {
+  background-color: #d32f2f;
+}
+
+

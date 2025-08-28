@@ -1,0 +1,78 @@
+<div class="container mt-3">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <form [formGroup]="demandeFormGroup" (ngSubmit)="updateDemandeAction()" class="shadow p-4 rounded"  enctype="multipart/form-data">
+        <h2 class="mb-4">Modifier Demande</h2>
+        <mat-form-field class="mb-3">
+          <mat-label>ID</mat-label>
+          <input matInput type="text" formControlName="id" readonly>
+        </mat-form-field>
+        <mat-form-field class="mb-3 margin">
+          <mat-label>Nom Complet</mat-label>
+          <input matInput type="text" formControlName="username" readonly>
+        </mat-form-field>
+        <mat-form-field class="mb-3">
+          <mat-label>Email</mat-label>
+          <input matInput type="email" formControlName="email" readonly>
+        </mat-form-field>
+        <mat-form-field class="mb-3 margin">
+          <mat-label>Filière</mat-label>
+          <input matInput type="text" formControlName="programeId" readonly>
+        </mat-form-field>
+        <mat-form-field class="mb-3">
+          <mat-label>Role</mat-label>
+          <input matInput type="text" formControlName="role" readonly>
+        </mat-form-field>
+        <mat-form-field class="mb-3 margin">
+          <mat-label>Téléphone</mat-label>
+          <input matInput type="text" formControlName="phoneNumber" readonly>
+        </mat-form-field>
+        <mat-form-field class="mb-3">
+          <mat-label>Titre</mat-label>
+          <input matInput type="text" formControlName="title" readonly>
+        </mat-form-field>
+        <mat-form-field class="mb-3 margin">
+          <mat-label>Description</mat-label>
+          <textarea matInput formControlName="description" readonly></textarea>
+        </mat-form-field>
+        <mat-form-field class="mb-3">
+          <mat-label>Avant Reparation</mat-label>
+          <input matInput type="text" formControlName="file_imageBefore" readonly>
+        </mat-form-field>
+        <mat-form-field class="mb-3 margin">
+          <mat-label>Priorité</mat-label>
+          <input matInput type="text" formControlName="priority" readonly>
+        </mat-form-field>
+
+        <mat-form-field class="mb-3">
+          <mat-label>Statut</mat-label>
+          <mat-select formControlName="status">
+            <mat-option disabled selected>Select Status</mat-option>
+            <mat-option *ngFor="let status of statusOptions" [value]="status">{{status}}</mat-option>
+          </mat-select>
+          <mat-error *ngIf="demandeFormGroup.controls['status'].errors && demandeFormGroup.controls['status'].touched">
+            {{ getErrorMessage('Status', demandeFormGroup.controls['status'].errors || {}) }}
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="mb-3 margin">
+          <mat-label>Après Reparation</mat-label>
+          <input type="text" matInput readonly formControlName="file_imageAfter">
+
+
+          <input type="file" accept="image/*" (change)="onImageSelected($event)" >
+
+        </mat-form-field>
+        <mat-form-field class="mb-3">
+          <mat-label>Remarque</mat-label>
+          <input matInput type="text" formControlName="remarque" >
+        </mat-form-field>
+
+        <div class="mt-4 d-flex justify-content-between">
+          <button mat-button class="mat-accent" type="button" (click)="cancel()">Cancel</button>
+          <button mat-raised-button class="background-color" type="submit">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

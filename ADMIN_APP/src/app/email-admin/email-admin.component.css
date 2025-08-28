@@ -1,0 +1,67 @@
+.email-admin-container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.email-admin-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  font-weight: bold;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.error-message {
+  color: red;
+  margin-top: 5px;
+}
+
+.password-toggle {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.submit-button {
+  background-color: #226b80;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.submit-button:hover {
+  background-color: #35b0ab;
+}
+.title{
+
+
+  background: linear-gradient(to right,  #226b80, #35b0ab); /* Double couleur de fond */
+  -webkit-background-clip: text; /* Permettre au texte de s'afficher avec le fond dégradé */
+  -webkit-text-fill-color: transparent; /* Masquer la couleur du texte pour permettre l'effet de dégradé */
+  cursor: pointer; /* Curseur de type pointer */
+  border-bottom: 1px solid  #226b80; /* Ajouter un trait transparent en bas */
+  transition: color 0.3s, border-bottom-color 0.3s; /* Transition pour l'animation du changement de couleur */
+
+}
+
+
+

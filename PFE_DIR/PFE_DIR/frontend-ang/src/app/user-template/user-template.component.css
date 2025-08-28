@@ -1,0 +1,195 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.custom-toolbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  background: #eeeeee;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.app-title {
+  font-family: 'Lobster';
+  font-size: 40px;
+  padding-left: 20px;
+  background: linear-gradient(to right, #226b80, #35b0ab);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  cursor: pointer;
+  border-bottom: 1px solid transparent;
+  transition: color 0.3s, border-bottom-color 0.3s;
+}
+
+.app-title:hover {
+  border-bottom-color: #35b0ab;
+  color: #35b0ab;
+}
+
+.button-color-gradient {
+  background: linear-gradient(to right, #226b80, #35b0ab);
+}
+
+.button {
+  color: black;
+}
+
+.button:hover, .menu-button:hover {
+  background: linear-gradient(to right, #226b80, #35b0ab);
+  color: white;
+}
+
+.menu-button {
+  width: 100%;
+  text-align: left;
+}
+
+.drawer {
+  background: #eeeeee;
+}
+
+.fixed-drawer {
+  position: fixed;
+  top: 64px; /* Adjust this value to the height of your toolbar */
+  left: 0;
+  height: calc(100% - 64px); /* Adjust this value to the height of your toolbar */
+  overflow-y: auto;
+}
+
+.stat-item {
+  position: relative;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  transition: background-color 0.3s;
+}
+
+.stat-item:hover {
+  background-color: #f0f0f0;
+}
+
+.stat-item .mat-icon {
+  animation: icon-pulse 1.5s infinite;
+}
+
+.stat-item span {
+  display: inline-block;
+  animation: text-fade-in 1s ease-in-out;
+}
+
+@keyframes icon-pulse {
+  0%, 100% {
+    transform: scale(1);
+    color: #226b80;
+  }
+  50% {
+    transform: scale(1.2);
+    color: #35b0ab;
+  }
+}
+
+@keyframes text-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.drawer h3 {
+  color: #226b80;
+  margin: 20px;
+}
+
+.footer {
+  background: #f8f9fa;
+  padding: 20px 0;
+}
+
+.footer h5 {
+  color: #226b80;
+}
+
+.footer a {
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer a:hover {
+  color: #35b0ab;
+}
+
+.footer .bg-dark {
+  background: linear-gradient(to right, #226b80, #35b0ab);
+}
+
+.footer .text-white {
+  color: #ffffff !important;
+}
+
+.footer .fab {
+  font-size: 1.5rem;
+}
+
+.footer .fab:hover {
+  color: #35b0ab;
+}
+
+.footer .container p {
+  margin: 0;
+  line-height: 1.6;
+}
+
+.content-container {
+  margin-top: 64px; /* Adjust this value to the height of your toolbar */
+}
+
+/* Styles spécifiques pour les appareils mobiles */
+@media screen and (max-width: 768px) {
+  .desktop-menu {
+    display: none;
+  }
+
+  .mobile-menu {
+    display: block;
+  }
+
+  .menu-toggle {
+    display: none;
+  }
+
+  .menu-icon {
+    display: inline; /* Affichez l'icône du menu sur les écrans plus petits */
+    cursor: pointer;
+  }
+
+  .menu {
+    position: absolute;
+    top: 64px; /* Adjust this value to the height of your toolbar */
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    z-index: 999; /* Assurez-vous que le menu apparaît au-dessus du contenu */
+    display: none; /* Cachez le menu par défaut */
+  }
+
+  /* Affichez le menu lorsque la case à cocher est cochée */
+  .menu-toggle:checked + .menu-icon + .menu {
+    display: block;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .desktop-menu {
+    display: block;
+  }
+
+  .mobile-menu {
+    display: none;
+  }
+}
+

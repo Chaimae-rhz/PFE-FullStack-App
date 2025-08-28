@@ -1,0 +1,28 @@
+
+<div class="email-admin-container">
+  <h1 class="title">Configuration email de l'application</h1>
+  <form [formGroup]="emailAdminForm" (ngSubmit)="onSubmit()"  class="email-admin-form">
+    <mat-form-field appearance="fill"  class="form-field">
+      <mat-label> Email</mat-label>
+      <input matInput formControlName="newEmail"  class="form-input">
+      <mat-error *ngIf="emailAdminForm.get('newEmail')?.hasError('required')" class="error-message">
+        L'email est requis.
+      </mat-error>
+      <mat-error *ngIf="emailAdminForm.get('newEmail')?.hasError('email')" class="error-message">
+        Veuillez entrer une adresse email valide.
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>Clé publique</mat-label>
+      <input matInput [type]="hidePassword ? 'password' : 'text'" formControlName="newPassword" class="form-input">
+      <button mat-icon-button matSuffix  (click)="togglePasswordVisibility($event)" [attr.aria-label]="hidePassword ? 'Hide password' : 'Show password'" class="password-toggle">
+        <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+      <mat-error *ngIf="emailAdminForm.get('newPassword')?.hasError('required')" class="error-message">
+        Le mot de passe est requis.
+      </mat-error>
+    </mat-form-field>
+    <button mat-raised-button  type="submit" class="submit-button">Enregistrer</button>
+  </form>
+</div>
+

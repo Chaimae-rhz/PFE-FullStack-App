@@ -1,0 +1,70 @@
+<div class="container">
+  <mat-card class="dashboard-card">
+    <mat-card-header>
+      <mat-card-title class="dashboard-title">Tableau de bord</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <div class="dashboard-item total-requests">
+        <i class="material-icons">description</i>
+        <p class="item-title">Total des demandes :</p>
+        <p class="item-value">{{ totalRequests }}</p>
+      </div>
+      <div class="dashboard-item requests-awaiting">
+        <i class="material-icons">hourglass_empty</i>
+        <p class="item-title">Demandes en attente :</p>
+        <p class="item-value">{{ requestsByStatus }}</p>
+      </div>
+      <div class="dashboard-item requests-in-progress">
+        <i class="material-icons">access_time</i>
+        <p class="item-title">Demandes en cours :</p>
+        <p class="item-value">{{ requestsInProgress }}</p>
+      </div>
+      <div class="dashboard-item requests-processed">
+        <i class="material-icons">done</i>
+        <p class="item-title">Demandes traitées :</p>
+        <p class="item-value">{{ requestsProcessed }}</p>
+      </div>
+      <div class="dashboard-item requests-canceled">
+        <i class="material-icons">cancel</i>
+        <p class="item-title">Demandes rejetées :</p>
+        <p class="item-value">{{ requestsCanceled }}</p>
+      </div>
+      <div class="dashboard-item requests-normal">
+        <i class="material-icons">priority_high</i>
+        <p class="item-title">Demandes normales :</p>
+        <p class="item-value">{{ requestsByPriority }}</p>
+      </div>
+      <div class="dashboard-item requests-urgent">
+        <i class="material-icons">warning</i>
+        <p class="item-title">Demandes urgentes :</p>
+        <p class="item-value">{{ requestsUrgent }}</p>
+      </div>
+      <div class="dashboard-item requests-low">
+        <i class="material-icons">low_priority</i>
+        <p class="item-title">Demandes basses :</p>
+        <p class="item-value">{{ requestsLow }}</p>
+      </div>
+      <div class="dashboard-item total-users">
+        <i class="material-icons">people</i>
+        <p class="item-title">Total des utilisateurs :</p>
+        <p class="item-value">{{ totalUsers }}</p>
+      </div>
+      <div class="dashboard-item total-personnel">
+        <i class="material-icons">person</i>
+        <p class="item-title">Total des personnels :</p>
+        <p class="item-value">{{ totalPersonnel }}</p>
+      </div>
+      <div class="dashboard-item total-personnel">
+        <i class="material-icons">person</i>
+        <p class="item-title">Total des admins :</p>
+        <p class="item-value">{{ totalAdmin }}</p>
+      </div>
+      <div class="dashboard-item total-personnel">
+        <i class="material-icons">person</i>
+        <p class="item-title">Total des admins(Super_Admin) :</p>
+        <p class="item-value">{{ totalAdminSuper }}</p>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

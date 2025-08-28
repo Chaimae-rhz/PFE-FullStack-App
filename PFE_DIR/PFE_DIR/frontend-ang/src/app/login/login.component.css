@@ -1,0 +1,158 @@
+/* General styling */
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(135deg, #e09, #d0e);
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.login-form {
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px; /* Ajoute de l'espace à droite du logo */
+}
+
+.logo {
+  background: radial-gradient(circle, #226b80, #35b0ab);
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: pulse 2s infinite alternate;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
+  }
+  100% {
+    transform: scale(1.1);
+    box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+  }
+}
+
+
+.countdown-container {
+  position: relative;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.lock-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 50px; /* Ajustez la taille de l'icône */
+  color: #333; /* Couleur de l'icône */
+}
+
+.countdown-circle {
+  display: inline-block;
+  width: 100px; /* Ajustez la taille du cercle */
+  height: 100px; /* Ajustez la taille du cercle */
+  border-radius: 50%;
+  background-color: #333; /* Couleur de fond du cercle */
+  line-height: 100px;
+  font-size: 24px; /* Ajustez la taille de la police */
+  color: #fff; /* Couleur du texte */
+  position: relative;
+  overflow: hidden; /* Pour masquer les parties du dégradé qui dépassent du cercle */
+}
+
+.countdown-circle:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: conic-gradient(
+    #f00 0deg, /* Couleur rouge à l'angle 0 */
+    #f00 calc((30 - countdown) / 30 * 360deg), /* Couleur rouge à un angle calculé en fonction du compte à rebours */
+    #333 calc((30 - countdown) / 30 * 360deg), /* Couleur de fond à un angle calculé en fonction du compte à rebours */
+    #333 360deg /* Couleur de fond à l'angle 360 */
+  ); /* Gradient conique pour créer le compte à rebours */
+  transition: background 1s; /* Ajouter une transition pour un effet de transition en douceur */
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+button[mat-raised-button] {
+  width: 100%;
+  margin-top: 20px;
+}
+
+button[mat-button] {
+  margin-top: 10px;
+  margin-left: 10px;
+}
+/* Styling for the Login button */
+button.login-button {
+  background: linear-gradient(to right, #2f6b56, #a5d3bd); /* Dégradé de violet clair */
+  color: white; /* Couleur du texte */
+  transition: background-color 0.3s; /* Transition pour l'animation du changement de couleur */
+}
+
+button.login-button:hover {
+  background: linear-gradient(to right, #b61b1b, #2f6b56); /* Dégradé de violet clair */
+  color: white; /* Nouvelle couleur du texte au survol */
+}
+/* Ajoutez cette section à votre fichier login.component.css */
+.shake {
+  animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
+

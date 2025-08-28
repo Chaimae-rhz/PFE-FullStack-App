@@ -1,0 +1,11 @@
+<h1 mat-dialog-title class="confirm-dialog-title">
+  <mat-icon>warning</mat-icon>
+  Confirmer la suppression
+</h1>
+<div mat-dialog-content>
+  <p>Êtes-vous sûr de vouloir supprimer cette demande ? Cela entraînera la suppression de cette demande associée à chaque personnel et utilisateur.</p>
+</div>
+<div mat-dialog-actions align="end">
+  <button mat-button (click)="onCancel()" class="mat-accent">Annuler</button>
+  <button mat-button (click)="onConfirm()" color="warn">Confirmer</button>
+</div>
